@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
+import { ErrorWrapper } from "./error-wrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,7 +43,9 @@ export default function RootLayout({
           </div>
         </header>
 
-        <main className="min-h-screen px-6 py-8">{children}</main>
+        <main className="min-h-screen px-6 py-8">
+          <ErrorWrapper>{children}</ErrorWrapper>
+        </main>
 
         <footer className="w-full bg-black border-t border-neutral-800 px-6 py-4 mt-12 text-center text-sm text-neutral-400">
           &copy; {new Date().getFullYear()} My App. All rights reserved.
